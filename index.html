@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Aviral & Somanjali · Save the Date</title>
+  <meta name="description" content="Aviral & Somanjali are getting married. Save the date: 13 & 14 March 2027.">
+  <meta property="og:title" content="Aviral & Somanjali · Save the Date">
+  <meta property="og:description" content="13 & 14 March 2027 · Kota meets Kolkata">
+  <meta name="theme-color" content="#6b1e2e">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌼</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Tiro+Devanagari+Hindi&family=Tiro+Bangla&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+
+  <main class="card">
+    <div class="arch">
+      <svg class="corner tl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner tr" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner bl" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner br" viewBox="0 0 80 80" aria-hidden="true"><use href="#corner"/></svg>
+
+      <svg class="ganesh" viewBox="0 0 120 40" aria-hidden="true"><use href="#lotus"/></svg>
+
+      <p class="blessing">
+        <span lang="hi">शुभ विवाह</span>
+        <span class="dot">✦</span>
+        <span lang="bn">শুভ বিবাহ</span>
+      </p>
+
+      <p class="eyebrow">Save the Date</p>
+
+      <h1 class="names">
+        <span>Aviral</span>
+        <span class="amp">&amp;</span>
+        <span>Somanjali</span>
+      </h1>
+
+      <p class="tagline">are getting married</p>
+
+      <svg class="divider" viewBox="0 0 300 24" aria-hidden="true"><use href="#divider"/></svg>
+
+      <div class="dates">
+        <div class="date">
+          <span class="dow">Saturday</span>
+          <span class="day">13</span>
+          <span class="month">March</span>
+        </div>
+        <div class="date-sep" aria-hidden="true">&amp;</div>
+        <div class="date">
+          <span class="dow">Sunday</span>
+          <span class="day">14</span>
+          <span class="month">March</span>
+        </div>
+      </div>
+      <p class="year">2027</p>
+
+      <p class="cities">
+        <span>Kota</span>
+        <svg viewBox="0 0 40 16" aria-hidden="true"><path d="M2 8h12M26 8h12" stroke="currentColor" stroke-width="1"/><path d="M20 2l6 6-6 6-6-6z" fill="currentColor"/></svg>
+        <span>Kolkata</span>
+      </p>
+      <p class="cities-sub">From the city of kachoris to the city of joy</p>
+
+      <div class="countdown" aria-label="Countdown to the wedding">
+        <div><span id="cd-d">--</span><small>Days</small></div>
+        <div><span id="cd-h">--</span><small>Hours</small></div>
+        <div><span id="cd-m">--</span><small>Minutes</small></div>
+        <div><span id="cd-s">--</span><small>Seconds</small></div>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" id="gcal" target="_blank" rel="noopener">Add to Google Calendar</a>
+        <button class="btn" id="ics" type="button">Apple / Outlook (.ics)</button>
+      </div>
+
+      <p class="footnote">Formal invitation &amp; details to follow</p>
+    </div>
+  </main>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="corner" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M4 76V30C4 15 15 4 30 4h46"/>
+        <path d="M12 76V34c0-12 10-22 22-22h42" opacity=".55"/>
+        <circle cx="30" cy="30" r="6"/>
+        <circle cx="30" cy="30" r="2" fill="currentColor"/>
+        <path d="M30 18c4 4 4 8 0 12-4-4-4-8 0-12zM18 30c4-4 8-4 12 0-4 4-8 4-12 0z" fill="currentColor" opacity=".7"/>
+      </g>
+      <g id="lotus" fill="currentColor">
+        <path d="M60 4c6 8 6 18 0 30-6-12-6-22 0-30z"/>
+        <path d="M60 34c-4-10-12-18-24-20 2 12 10 20 24 20z" opacity=".75"/>
+        <path d="M60 34c4-10 12-18 24-20-2 12-10 20-24 20z" opacity=".75"/>
+        <path d="M60 34c-10-4-22-4-32 2 10 6 22 4 32-2z" opacity=".45"/>
+        <path d="M60 34c10-4 22-4 32 2-10 6-22 4-32-2z" opacity=".45"/>
+        <rect x="10" y="37" width="100" height="1.2" opacity=".5"/>
+      </g>
+      <g id="divider" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M10 12h105M185 12h105"/>
+        <path d="M150 2l10 10-10 10-10-10z" fill="currentColor"/>
+        <circle cx="128" cy="12" r="3"/><circle cx="172" cy="12" r="3"/>
+        <circle cx="118" cy="12" r="1.5" fill="currentColor"/><circle cx="182" cy="12" r="1.5" fill="currentColor"/>
+      </g>
+    </defs>
+  </svg>
+
+  <script src="script.js"></script>
+</body>
+</html>
