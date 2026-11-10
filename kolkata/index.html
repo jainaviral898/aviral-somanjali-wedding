@@ -92,12 +92,13 @@
     }
     .props {
       position: absolute;
-      left: calc(-1 * var(--B) - 10px);
-      bottom: -30px;
-      width: clamp(170px, 60%, 280px);
+      left: calc(-1 * var(--B) - 6px);
+      bottom: -18px;
+      width: clamp(150px, 48%, 230px);
       pointer-events: none;
       filter: drop-shadow(0 4px 4px rgba(60, 20, 0, .35));
     }
+    .props.right { left: auto; right: calc(-1 * var(--B) - 6px); width: clamp(120px, 38%, 180px); transform: scaleX(-1); }
 
     /* ── Text inside the arch ─────────────────── */
     .content {
@@ -159,7 +160,8 @@
       h1 { letter-spacing: .1em; padding-left: .1em; }
       .std { margin-top: 12px; }
       .kalka { margin: 12px auto; }
-      .props { width: 58%; bottom: -26px; }
+      .props { width: 46%; bottom: -14px; }
+      .props.right { width: 36%; }
     }
     @media (prefers-reduced-motion: reduce) { .arch, .music .bars i { animation: none !important; } }
   </style>
@@ -203,7 +205,8 @@
       </div>
 
       <div class="ledge" aria-hidden="true"></div>
-      <svg class="props" viewBox="0 0 260 230" aria-hidden="true"></svg>
+      <svg class="props" viewBox="0 0 260 200" aria-hidden="true"></svg>
+      <svg class="props right" viewBox="0 0 260 200" aria-hidden="true"></svg>
     </main>
   </div>
 
@@ -217,11 +220,14 @@
         <linearGradient id="shola" x1="0" y1="1" x2="0" y2="0">
           <stop offset="0" stop-color="#e3dccf"/><stop offset=".45" stop-color="#fbf8f2"/><stop offset="1" stop-color="#ffffff"/>
         </linearGradient>
-        <linearGradient id="potRed" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#8f1d10"/><stop offset=".45" stop-color="#d0432b"/><stop offset="1" stop-color="#8f1d10"/>
+        <linearGradient id="lotusBack" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stop-color="#fbe6ea"/><stop offset=".6" stop-color="#f3bcc8"/><stop offset="1" stop-color="#e48ba0"/>
         </linearGradient>
-        <linearGradient id="crown" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0" stop-color="#d99a06"/><stop offset="1" stop-color="#ffe07a"/>
+        <linearGradient id="lotusFront" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#fdf1f3"/><stop offset="1" stop-color="#f0a9b9"/>
+        </linearGradient>
+        <linearGradient id="pad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#9cb684"/><stop offset="1" stop-color="#5f7f4e"/>
         </linearGradient>
       </defs>`;
 
@@ -264,46 +270,43 @@
       frame.innerHTML = out;
     }
 
-    // Bottom-left props: shola topor, a painted mangal ghot and the bride's mukut
-    const topor = `
-      <g stroke="#a99f92" stroke-width="1">
-        <path d="M58 26C56 6 78 0 88 12C80 9 70 12 70 26Z" fill="url(#shola)"/>
-        <path d="M50 92L56 26H72L78 92Z" fill="url(#shola)"/>
-        <path d="M60 30V90M64 28V90M68 30V90" stroke="#cfc6b8"/>
-        <path d="M24 176L44 92H84L104 176Z" fill="url(#shola)"/>
-        <path d="M44 100L34 172M52 100L46 172M60 100L58 172M68 100L70 172M76 100L82 172M84 100L94 172" stroke="#cfc6b8"/>
-        <rect x="40" y="90" width="48" height="10" rx="3" fill="#fff"/>
-        <rect x="14" y="174" width="100" height="40" rx="8" fill="url(#shola)"/>
-        ${[30, 52, 76, 98].map((x) => `<circle cx="${x}" cy="194" r="10" fill="#fff"/><circle cx="${x}" cy="194" r="5.5" fill="none" stroke="#c9a96a"/><circle cx="${x}" cy="194" r="2" fill="#c9a96a" stroke="none"/>`).join("")}
-        <path d="M14 182H114M14 206H114" stroke="#cfc6b8"/>
-      </g>`;
-    const ghot = `
-      <g stroke="#5e1308" stroke-width="1">
-        <path d="M150 64L156 40L162 64Z" fill="#d0432b"/>
-        <circle cx="156" cy="38" r="3" fill="#f2c230"/>
-        <path d="M144 84C144 72 150 64 156 64C162 64 168 72 168 84Z" fill="#2f7d3a"/>
-        <path d="M138 104C138 90 146 84 156 84C166 84 174 90 174 104Z" fill="url(#potRed)"/>
-        <path d="M140 98H172" stroke="#f2c230" stroke-width="3"/>
-        <rect x="146" y="104" width="20" height="10" fill="#f2c230"/>
-        <path d="M126 160C118 132 136 114 156 114C176 114 194 132 186 160C182 176 170 186 156 186C142 186 130 176 126 160Z" fill="url(#potRed)"/>
-        <path d="M128 140H184" stroke="#f2c230" stroke-width="4"/>
-        <path d="M130 150H182" stroke="#2f7d3a" stroke-width="3"/>
-        ${[136, 146, 156, 166, 176].map((x) => `<path d="M${x} 158c4 6 4 10 0 14-4-4-4-8 0-14z" fill="#f2c230" stroke="none"/>`).join("")}
-        <path d="M140 186H172L168 200H144Z" fill="#2f7d3a"/>
-      </g>`;
-    const mukut = `
-      <g stroke="#7a4b00" stroke-width="1">
-        <path d="M184 206C186 176 206 156 226 156C246 156 258 176 258 206Z" fill="url(#crown)"/>
-        ${[0, 1, 2, 3, 4].map((i) => {
-          const a = (-150 + i * 30) * Math.PI / 180, x = 221 + Math.cos(a) * 30, y = 200 + Math.sin(a) * 30;
-          return `<path d="M${x.toFixed(1)} ${y.toFixed(1)}c-6-10 0-22 6-26 6 4 12 16 6 26z" fill="#d0432b" transform="rotate(${(-60 + i * 30)} ${x.toFixed(1)} ${y.toFixed(1)})"/>`;
-        }).join("")}
-        <path d="M206 186c4-14 26-14 30 0" fill="none" stroke="#d0432b" stroke-width="3"/>
-        <circle cx="221" cy="176" r="6" fill="#2f7d3a"/><circle cx="221" cy="176" r="2.5" fill="#fff" stroke="none"/>
-        <rect x="180" y="204" width="80" height="16" rx="4" fill="#fbf8f2" stroke="#a99f92"/>
-        ${[188, 200, 212, 224, 236, 248].map((x) => `<circle cx="${x}" cy="212" r="3" fill="#d0432b" stroke="none"/>`).join("")}
-      </g>`;
-    document.querySelector(".props").innerHTML = defs + ghot + mukut + topor;
+    // Bottom corners: shola-style lotuses (white petals blushing pink) rising from lotus pads
+    // PETAL (pointed petal, base at origin) comes from flora.js
+    const petal = (a, w, h, fill) =>
+      `<path d="${PETAL}" fill="${fill}" stroke="#c98a96" stroke-width=".7" vector-effect="non-scaling-stroke" transform="rotate(${a}) scale(${w} ${h})"/>`;
+    function lotus(x, y, s) {
+      let g = `<g transform="translate(${x} ${y}) scale(${s})">`;
+      for (const a of [-74, -52, -28, 0, 28, 52, 74]) g += petal(a, 30, 44, "url(#lotusBack)");
+      for (const a of [-42, -15, 15, 42]) g += petal(a, 34, 40, "url(#lotusFront)");
+      g += petal(0, 30, 37, "url(#lotusFront)");
+      g += [-9, -3, 3, 9].map((dx) => `<circle cx="${dx}" cy="-33" r="1.6" fill="#e2a72e"/>`).join("");
+      g += `<path d="M-15 1C-9 9 9 9 15 1C9 4-9 4-15 1Z" fill="#7d9a64" stroke="#4f6a40" stroke-width=".7"/>`;
+      return g + `</g>`;
+    }
+    function lotusBud(x, y, s, rot) {
+      return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})">` +
+        petal(0, 18, 40, "url(#lotusBack)") + petal(-14, 14, 30, "url(#lotusFront)") + petal(14, 14, 30, "url(#lotusFront)") +
+        `<path d="M-8 1C-4 6 4 6 8 1" fill="#7d9a64" stroke="#4f6a40" stroke-width=".7"/></g>`;
+    }
+    function lotusPad(cx, cy, rx, ry, rot) {
+      let veins = "";
+      for (let i = 0; i < 9; i++) {
+        const a = Math.PI + (i / 8) * Math.PI;
+        veins += `M${cx} ${cy}L${(cx + Math.cos(a) * rx * .9).toFixed(1)} ${(cy + Math.sin(a) * ry * .9 + ry * .4).toFixed(1)}`;
+      }
+      return `<g transform="rotate(${rot} ${cx} ${cy})">` +
+        `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="url(#pad)" stroke="#4f6a40" stroke-width=".8"/>` +
+        `<path d="${veins}" stroke="#d6e5bf" stroke-opacity=".55" stroke-width=".7" fill="none"/></g>`;
+    }
+    const stem = (d) => `<path d="${d}" fill="none" stroke="#6d8b55" stroke-width="3" stroke-linecap="round"/>`;
+    const lotusCluster =
+      defs +
+      lotusPad(70, 184, 66, 12, -2) + lotusPad(178, 188, 46, 9, 3) +
+      stem("M84 184Q80 162 84 138") + stem("M152 188Q148 172 152 160") + stem("M214 188Q222 150 210 110") +
+      lotusBud(210, 110, 1, 12) +
+      lotus(152, 160, 0.82) +
+      lotus(84, 138, 1.25);
+    document.querySelectorAll(".props").forEach((el) => (el.innerHTML = lotusCluster));
 
 
     // Faint alpana / mandala swirls in the beige background
