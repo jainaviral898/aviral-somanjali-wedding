@@ -6,29 +6,31 @@
   <title>Aviral & Somanjali · Save the Date · Kolkata</title>
   <meta name="description" content="Aviral & Somanjali are getting married. Save the date: 21 March 2027, Kolkata.">
   <meta property="og:title" content="Aviral & Somanjali · Save the Date">
-  <meta property="og:description" content="21 March 2027 · Kolkata · Rosogulla meets kachori">
+  <meta property="og:description" content="21 March 2027 · Kolkata · Where rosogulla meets kachori">
   <link rel="canonical" href="https://aviral-somanjali-wedding.in/kolkata/">
   <meta property="og:url" content="https://aviral-somanjali-wedding.in/kolkata/">
-  <meta name="theme-color" content="#f8f3ea">
+  <meta name="theme-color" content="#f1dcbc">
   <meta name="format-detection" content="telephone=no">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8f3ea'/><text x='50' y='68' font-size='54' text-anchor='middle'>🌺</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Tiro+Bangla&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Tiro+Bangla&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #f8f3ea;
-      --panel: #fdfaf4;
-      --ink: #3a2a24;
-      --muted: #7d6a5f;
-      --red: #8e1b24;
-      --gold: #b08d57;
+      --beige: #f1dcbc;
+      --tan: #d9b88a;
+      --red: #8f2a17;
+      --red-deep: #6e1c0e;
+      --cream: #fbf1df;
+      --gold: #f3c46a;
+      --shola: #fbf8f2;
+      --shade: #b7ad9f;
+      --B: 46px; /* paisley border thickness */
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "Cormorant Garamond", Georgia, serif;
-      color: var(--ink);
-      background: var(--cream);
+      color: var(--cream);
+      background: var(--beige);
       overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
@@ -37,268 +39,300 @@
     .page {
       position: relative;
       min-height: 100vh;
-      min-height: 100dvh;
+      min-height: 100svh;
       display: grid;
       place-items: center;
-      padding: clamp(110px, 20vw, 140px) 16px clamp(110px, 20vw, 140px);
+      padding: calc(env(safe-area-inset-top) + 64px) 16px calc(env(safe-area-inset-bottom) + 56px);
       overflow: hidden;
     }
-    .corner { position: absolute; pointer-events: none; z-index: 2; }
-    .corner.big { width: clamp(200px, 40vw, 460px); }
-    .corner.small { width: clamp(130px, 24vw, 280px); }
-    .tl { top: -12px; left: -12px; }
-    .br { bottom: -12px; right: -12px; transform: scale(-1, -1); }
-    .tr { top: -12px; right: -12px; transform: scaleX(-1); }
-    .bl { bottom: -12px; left: -12px; transform: scaleY(-1); }
+    .bgart { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--tan); opacity: .55; pointer-events: none; }
 
-    .card {
+    /* ── The arch ─────────────────────────────── */
+    .arch {
       position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 470px;
-      text-align: center;
-      padding: clamp(86px, 22vw, 118px) clamp(24px, 7vw, 48px) 84px;
-      animation: fade 1.4s ease both;
+      width: min(440px, calc(100vw - 32px - 2 * var(--B)));
+      border-radius: 999px 999px 0 0;
+      background:
+        radial-gradient(ellipse at 50% 30%, #a3361f 0%, transparent 65%),
+        radial-gradient(ellipse at 30% 80%, #7c2312 0%, transparent 60%),
+        var(--red);
+      box-shadow: inset 0 0 40px rgba(60, 10, 0, .45);
+      animation: rise 1.2s cubic-bezier(.2,.7,.2,1) both;
     }
-    /* floral spray resting on the base of the arch */
-    .base {
-      position: absolute;
-      left: 50%;
-      bottom: -62px;
-      width: 112%;
-      transform: translateX(-50%);
-      overflow: visible;
+    /* painted-wall texture */
+    .arch::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .03 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: .5;
       pointer-events: none;
     }
-    @keyframes fade { from { opacity: 0; transform: translateY(14px); } }
-    .arch { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; z-index: -1; }
-    .mandala {
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+
+    .frame {
       position: absolute;
-      top: 38px;
-      left: 50%;
-      width: 74%;
-      transform: translateX(-50%);
-      opacity: .16;
-      z-index: -1;
-      animation: turn 160s linear infinite;
+      top: calc(-1 * var(--B)); left: calc(-1 * var(--B));
+      width: calc(100% + 2 * var(--B));
+      height: calc(100% + var(--B));
+      overflow: visible;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 2px rgba(80, 40, 10, .35));
     }
-    @keyframes turn { to { transform: translateX(-50%) rotate(360deg); } }
-
-    .bless { font-size: 15px; color: var(--red); }
-    .bless [lang="hi"] { font-family: "Tiro Devanagari Hindi", serif; }
-    .bless [lang="bn"] { font-family: "Tiro Bangla", serif; }
-    .bless i { color: var(--gold); font-style: normal; margin: 0 8px; }
-
-    .std {
-      margin-top: 22px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: .48em;
-      padding-left: .48em;
-      text-transform: uppercase;
-      color: var(--gold);
+    .ledge {
+      position: absolute;
+      left: calc(-1 * var(--B) - 6px); right: calc(-1 * var(--B) - 6px);
+      bottom: -14px; height: 22px;
+      background:
+        radial-gradient(circle at 50% 50%, #fff 0 3px, #cfc6b8 3.6px, transparent 4.2px) 0 50% / 14px 14px repeat-x,
+        linear-gradient(#fdfbf7, #e9e2d6);
+      border: 1px solid var(--shade);
+      border-radius: 3px;
+      box-shadow: 0 4px 8px rgba(80, 40, 10, .3);
     }
+    .props {
+      position: absolute;
+      left: calc(-1 * var(--B) - 10px);
+      bottom: -30px;
+      width: clamp(170px, 60%, 280px);
+      pointer-events: none;
+      filter: drop-shadow(0 4px 4px rgba(60, 20, 0, .35));
+    }
+
+    /* ── Text inside the arch ─────────────────── */
+    .content {
+      position: relative;
+      text-align: center;
+      padding: 30% 26px 178px;
+    }
+    .shubho { font-family: "Tiro Bangla", serif; color: var(--gold); font-size: clamp(30px, 8.6vw, 44px); line-height: 1.15; }
+    .hi { font-family: "Tiro Devanagari Hindi", serif; font-size: 15px; color: #f0d6b0; margin-top: 2px; }
+    .std { margin-top: 18px; font-size: 13px; font-weight: 600; letter-spacing: .44em; padding-left: .44em; text-transform: uppercase; color: var(--gold); }
     h1 {
-      font-family: "Italiana", serif;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      padding-left: .16em;
-      font-size: clamp(36px, 10vw, 58px);
-      line-height: 1.1;
-      margin-top: 12px;
-      color: var(--red);
+      font-family: "Italiana", serif; font-weight: 400;
+      text-transform: uppercase; letter-spacing: .14em; padding-left: .14em;
+      font-size: clamp(28px, 8.4vw, 50px); line-height: 1.12;
+      margin-top: 8px; color: var(--cream);
     }
-    h1 .amp {
-      display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-style: italic;
-      text-transform: none;
-      letter-spacing: 0;
-      padding: 0;
-      color: var(--red);
-      font-size: .85em;
-      line-height: 1;
-      margin: 0 0 2px;
-    }
-
-    .tagline { margin-top: 14px; font-style: italic; font-size: clamp(19px, 5vw, 22px); color: var(--muted); }
-
-    .paisley { display: block; width: 190px; margin: 22px auto; color: var(--gold); }
-
-    .when {
-      font-family: "Italiana", serif;
-      font-size: clamp(30px, 8vw, 40px);
-      letter-spacing: .18em;
-      padding-left: .18em;
-    }
-    .when b { font-weight: 400; color: var(--red); margin: 0 .2em; }
-    .month { margin-top: 4px; font-size: 15px; font-weight: 500; letter-spacing: .4em; padding-left: .4em; text-transform: uppercase; color: var(--muted); }
-    .days { font-style: italic; font-size: 18px; color: var(--muted); margin-top: 2px; }
-
-    .cities { margin-top: 20px; font-size: 13px; letter-spacing: .36em; padding-left: .36em; text-transform: uppercase; color: var(--ink); }
-    .cities i { color: var(--gold); font-style: normal; margin: 0 6px; }
-
-    .cd { margin-top: 18px; font-style: italic; font-size: 18px; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .cd span { color: var(--red); font-style: normal; font-weight: 500; }
-
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; }
+    h1 .amp { display: block; font-family: "Cormorant Garamond", serif; font-style: italic; text-transform: none; letter-spacing: 0; padding: 0; color: var(--gold); font-size: .85em; line-height: 1; }
+    .tagline { margin-top: 8px; font-style: italic; font-size: clamp(18px, 4.8vw, 21px); color: #f3dcc0; }
+    .kalka { display: block; width: 130px; margin: 16px auto; }
+    .date { font-family: "Italiana", serif; font-size: clamp(46px, 13vw, 64px); line-height: 1; color: var(--cream); }
+    .month { margin-top: 4px; font-size: 14px; font-weight: 600; letter-spacing: .36em; padding-left: .36em; text-transform: uppercase; color: var(--gold); }
+    .day { font-style: italic; font-size: 18px; color: #f3dcc0; }
+    .city { margin-top: 12px; font-size: 13px; font-weight: 600; letter-spacing: .36em; padding-left: .36em; text-transform: uppercase; }
+    .city i { font-style: normal; color: var(--gold); margin: 0 6px; }
+    .cd { margin-top: 8px; font-style: italic; font-size: 18px; color: #f3dcc0; }
+    .cd span { font-style: normal; font-weight: 600; color: var(--gold); }
     .btn {
-      font: inherit; font-size: 15px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
-      min-height: 44px; padding: 10px 22px; border-radius: 999px; cursor: pointer; text-decoration: none;
-      border: 1px solid var(--ink); background: transparent; color: var(--ink);
-      transition: background .2s, color .2s;
+      display: inline-block; margin-top: 16px;
+      font: inherit; font-size: 15px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      min-height: 46px; padding: 12px 24px; border-radius: 999px; text-decoration: none;
+      background: var(--cream); color: var(--red-deep); border: 1px solid var(--gold);
+      box-shadow: 0 3px 0 rgba(60, 10, 0, .35);
     }
-    .btn:hover { background: var(--ink); color: var(--panel); }
-    .btn.primary { background: var(--red); border-color: var(--red); color: var(--panel); }
-    .btn.primary:hover { background: var(--ink); border-color: var(--ink); }
     .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-    .foot { margin-top: 20px; font-style: italic; color: var(--muted); }
+    .foot { margin-top: 12px; font-style: italic; color: #f0d6b0; }
 
-    /* Phones (tuned for iPhone 17 / 17 Pro at 402×874, also 17 Pro Max 440×956 and Air 420×912):
-       tighter rhythm so names, dates and the button sit above Safari's bottom toolbar */
-    @media (max-width: 480px) {
-      .page {
-        min-height: 100svh;
-        padding: calc(env(safe-area-inset-top) + 78px) max(14px, env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + 72px) max(14px, env(safe-area-inset-left));
-      }
-      .corner.big { width: 47vw; }
-      .corner.small { width: 30vw; }
-      .card { padding: 74px 22px 68px; }
-      .mandala { top: 26px; width: 80%; }
-      .std { margin-top: 14px; }
-      h1 { font-size: 10.4vw; margin-top: 8px; }
-      .tagline { margin-top: 6px; font-size: 19px; }
-      .paisley { width: 160px; margin: 14px auto; }
-      .when { font-size: 34px; }
-      .month { font-size: 14px; }
-      .cities { margin-top: 12px; }
-      .cd { margin-top: 10px; }
-      .actions { margin-top: 16px; }
-      .actions .btn { width: 100%; min-height: 48px; font-size: 16px; }
-      .foot { margin-top: 12px; }
-      .base { bottom: -52px; width: 118%; }
+    /* ── Music toggle ─────────────────────────── */
+    .music {
+      position: fixed; z-index: 5;
+      top: calc(env(safe-area-inset-top) + 12px); right: max(12px, env(safe-area-inset-right));
+      display: flex; align-items: center; gap: 8px;
+      font: 600 14px "Cormorant Garamond", serif; letter-spacing: .08em;
+      min-height: 40px; padding: 8px 14px; border-radius: 999px; cursor: pointer;
+      background: rgba(251, 241, 223, .92); color: var(--red-deep); border: 1px solid var(--tan);
+      box-shadow: 0 2px 8px rgba(80, 40, 10, .2);
     }
-    @media (prefers-reduced-motion: reduce) { .card, .mandala { animation: none; } }
+    .music:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+    .bars { display: inline-flex; align-items: flex-end; gap: 2px; height: 14px; }
+    .bars i { width: 3px; height: 4px; background: var(--red); border-radius: 1px; }
+    .music[aria-pressed="true"] .bars i { animation: eq 1s ease-in-out infinite; }
+    .music[aria-pressed="true"] .bars i:nth-child(2) { animation-delay: -.3s; }
+    .music[aria-pressed="true"] .bars i:nth-child(3) { animation-delay: -.6s; }
+    @keyframes eq { 50% { height: 14px; } }
+
+    @media (max-width: 480px) {
+      :root { --B: 36px; }
+      .page { padding-top: calc(env(safe-area-inset-top) + 58px); padding-bottom: calc(env(safe-area-inset-bottom) + 46px); }
+      .content { padding: 27% 14px 132px; }
+      h1 { letter-spacing: .1em; padding-left: .1em; }
+      .std { margin-top: 12px; }
+      .kalka { margin: 12px auto; }
+      .props { width: 58%; bottom: -26px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .arch, .music .bars i { animation: none !important; } }
   </style>
 </head>
 <body data-start="2027-03-21" data-end="2027-03-22" data-title="Aviral &amp; Somanjali's Wedding · Kolkata">
   <div class="page">
-    <svg class="corner big tl" viewBox="0 0 420 420" aria-hidden="true"></svg>
-    <svg class="corner big br" viewBox="0 0 420 420" aria-hidden="true"></svg>
-    <svg class="corner small tr" viewBox="0 0 300 300" aria-hidden="true"></svg>
-    <svg class="corner big bl" viewBox="0 0 420 420" aria-hidden="true"></svg>
+    <svg class="bgart" aria-hidden="true"></svg>
 
-    <main class="card">
-      <svg class="arch" aria-hidden="true"></svg>
-      <svg class="base" viewBox="0 0 520 150" aria-hidden="true"></svg>
-      <svg class="mandala" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+    <button class="music" type="button" aria-pressed="false" aria-label="Play music">
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="label">Play music</span>
+    </button>
 
-      <p class="bless"><span lang="bn">শুভ বিবাহ</span><i>✦</i><span lang="hi">शुभ विवाह</span></p>
-      <p class="std">Save the Date</p>
-      <h1>Aviral <span class="amp">&amp;</span> Somanjali</h1>
-      <p class="tagline">Rosogulla meets kachori</p>
+    <main class="arch">
+      <svg class="frame" aria-hidden="true"></svg>
 
-      <svg class="paisley" viewBox="0 0 150 24" aria-hidden="true" fill="currentColor">
-        <rect x="0" y="11.5" width="50" height="1" opacity=".7"/>
-        <rect x="100" y="11.5" width="50" height="1" opacity=".7"/>
-        <path d="M66 18c-6 0-9-5-7-9 2-5 9-6 13-2 3 3 2 9-2 11 2-3 1-6-1-7-3-1-5 1-4 3 1 2 3 2 4 1-1 2-2 3-3 3z"/>
-        <path d="M84 6c6 0 9 5 7 9-2 5-9 6-13 2-3-3-2-9 2-11-2 3-1 6 1 7 3 1 5-1 4-3-1-2-3-2-4-1 1-2 2-3 3-3z"/>
-        <circle cx="54" cy="12" r="1.6"/><circle cx="96" cy="12" r="1.6"/>
-      </svg>
+      <div class="content">
+        <p class="shubho" lang="bn">শুভ বিবাহ</p>
+        <p class="hi" lang="hi">शुभ विवाह</p>
+        <p class="std">Save the Date</p>
+        <h1>Somanjali <span class="amp">&amp;</span> Aviral</h1>
+        <p class="tagline">Where rosogulla meets kachori</p>
 
-      <p class="when">21</p>
-      <p class="month">March 2027</p>
-      <p class="days">Sunday</p>
+        <svg class="kalka" viewBox="0 0 130 24" aria-hidden="true">
+          <path d="M2 12h42M86 12h42" stroke="#f3c46a" stroke-width="1"/>
+          <g fill="#f3c46a">
+            <circle cx="48" cy="12" r="1.6"/><circle cx="82" cy="12" r="1.6"/>
+            <path d="M65 3c4 4 4 10 0 15-4-5-4-11 0-15z"/>
+            <path d="M65 18c-3-6-8-9-13-9 1 6 6 9 13 9z" opacity=".8"/>
+            <path d="M65 18c3-6 8-9 13-9-1 6-6 9-13 9z" opacity=".8"/>
+            <rect x="57" y="19" width="16" height="1.4" rx=".7"/>
+          </g>
+        </svg>
 
-      <p class="cities"><i>✿</i>Kolkata<i>✿</i></p>
-
-      <p class="cd" aria-label="Countdown to the wedding"><span data-cd="d">--</span> days to go</p>
-
-      <div class="actions">
-        <a class="btn primary" data-gcal>Save to Calendar</a>
+        <p class="date">21</p>
+        <p class="month">March 2027</p>
+        <p class="day">Sunday</p>
+        <p class="city"><i>✿</i>Kolkata<i>✿</i></p>
+        <p class="cd" aria-label="Countdown to the wedding"><span data-cd="d">--</span> days to go</p>
+        <a class="btn" data-gcal>Save to Calendar</a>
+        <p class="foot">Formal invitation to follow</p>
       </div>
-      <p class="foot">Formal invitation to follow</p>
+
+      <div class="ledge" aria-hidden="true"></div>
+      <svg class="props" viewBox="0 0 260 230" aria-hidden="true"></svg>
     </main>
   </div>
 
   <script src="/flora.js"></script>
   <script>
-    floraDefs();
-    const rand = rng(14);
+    // Kalka (paisley) in local coords: bulb at the base (0,0), tip curling at the top
+    const KALKA = "M0 0C-11 0-13-14-7-21C-3-26 2-31 8-32C11-32 12-29 9-28C6-24 9-17 9-11C9-4 5 0 0 0Z";
 
-    const big = [
-      sprig(0, 40, 270, 98, "sage"),
-      sprig(40, 0, 260, 162, "sage"),
-      leaf(0, 120, 150, 122, "leaf"),
-      leaf(110, 0, 150, 148, "leaf"),
-      leaf(60, 50, 175, 135, "leaf"),
-      leaf(0, 200, 110, 150, "sage"),
-      leaf(200, 0, 110, 115, "sage"),
-      bud(262, 52, 11, 118, "blush"),
-      bud(52, 262, 11, 152, "rose"),
-      rose(78, 72, 72, 10, "rose"),
-      rose(190, 52, 46, 40, "blush"),
-      rose(50, 190, 50, -20, "blush"),
-      marigold(155, 145, 32, 0),
-      marigold(232, 110, 19, 20),
-      marigold(110, 228, 19, 0),
-      jasmine(130, 205, 13, 10),
-      jasmine(205, 168, 11, 40),
-      jasmine(265, 88, 9, 0),
-      dots(220, 200, 14, 40, "#e7cfa3", rand),
-    ].join("");
+    const defs = `
+      <defs>
+        <linearGradient id="shola" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stop-color="#e3dccf"/><stop offset=".45" stop-color="#fbf8f2"/><stop offset="1" stop-color="#ffffff"/>
+        </linearGradient>
+        <linearGradient id="potRed" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#8f1d10"/><stop offset=".45" stop-color="#d0432b"/><stop offset="1" stop-color="#8f1d10"/>
+        </linearGradient>
+        <linearGradient id="crown" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stop-color="#d99a06"/><stop offset="1" stop-color="#ffe07a"/>
+        </linearGradient>
+      </defs>`;
 
-    const small = [
-      sprig(10, 10, 210, 128, "sage"),
-      leaf(0, 70, 120, 128, "leaf"),
-      leaf(70, 0, 120, 142, "leaf"),
-      bud(150, 40, 9, 115, "blush"),
-      rose(55, 50, 44, 20, "blush"),
-      marigold(118, 92, 22, 0),
-      jasmine(60, 130, 10, 0),
-      dots(140, 140, 8, 30, "#e7cfa3", rand),
-    ].join("");
-
-    document.querySelectorAll(".corner.big").forEach((s) => (s.innerHTML = big));
-    document.querySelectorAll(".corner.small").forEach((s) => (s.innerHTML = small));
-
-    document.querySelector(".base").innerHTML = [
-      sprig(260, 88, 240, -100, "sage"),
-      sprig(260, 88, 240, 100, "sage"),
-      leaf(240, 92, 130, -74, "leaf"),
-      leaf(280, 92, 130, 74, "leaf"),
-      leaf(232, 98, 110, -116, "sage"),
-      leaf(288, 98, 110, 116, "sage"),
-      bud(118, 72, 9, -62, "blush"),
-      bud(402, 72, 9, 62, "blush"),
-      marigold(182, 92, 22, 0),
-      marigold(338, 92, 22, 10),
-      rose(214, 82, 34, 10, "blush"),
-      rose(306, 82, 34, -20, "blush"),
-      rose(260, 76, 46, 0, "rose"),
-      jasmine(156, 104, 10, 0),
-      jasmine(364, 104, 10, 30),
-      jasmine(238, 124, 8, 15),
-      jasmine(284, 122, 8, 50),
-      dots(260, 110, 10, 70, "#e7cfa3", rand),
-    ].join("");
-    document.querySelector(".mandala").innerHTML = mandala("#b08d57");
-
-    // Jharokha arch sized to the card
-    const card = document.querySelector(".card");
-    const arch = document.querySelector(".arch");
-    function drawArch() {
-      const w = card.clientWidth;
-      const h = card.clientHeight;
-      arch.setAttribute("viewBox", `0 0 ${w} ${h}`);
-      arch.innerHTML =
-        `<path d="${archPath(w, h, 0)}" fill="#fdfaf4" fill-opacity=".94" stroke="#b08d57" stroke-width="1.2"/>` +
-        `<path d="${archPath(w, h, 9)}" fill="none" stroke="#b08d57" stroke-width=".8" stroke-dasharray="1 4" stroke-linecap="round"/>` +
-        `<path d="M${w / 2} -14c4 5 4 9 0 12-4-3-4-7 0-12z" fill="#b08d57"/>`;
+    function kalka(x, y, rot, s) {
+      return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${s})">` +
+        `<path d="${KALKA}" fill="url(#shola)" stroke="#a99f92" stroke-width=".8"/>` +
+        `<path d="M-1-3C-8-3-9-12-5-17C-2-21 2-24 5-25" fill="none" stroke="#b9b0a3" stroke-width=".7"/>` +
+        `<circle cx="-1" cy="-9" r="2.4" fill="none" stroke="#b9b0a3" stroke-width=".7"/>` +
+        `<circle cx="-9.5" cy="-8" r=".9" fill="#c9c1b4"/><circle cx="-9.8" cy="-13" r=".9" fill="#c9c1b4"/><circle cx="-7.8" cy="-18" r=".9" fill="#c9c1b4"/>` +
+        `</g>`;
     }
-    drawArch();
-    new ResizeObserver(drawArch).observe(card);
+
+    // Shola paisley border around the arch: up the left side, over the top, down the right
+    const arch = document.querySelector(".arch");
+    const frame = document.querySelector(".frame");
+    function drawFrame() {
+      const B = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--B"));
+      const w = arch.clientWidth;
+      const h = arch.clientHeight;
+      const s = B / 34;
+      const R = w / 2;
+      const cx = B + R;
+      const cy = B + R;
+      const side = h - R;
+      const arc = Math.PI * R;
+      const step = 20 * s;
+      let out = defs;
+      const n = Math.round((2 * side + arc) / step);
+      for (let i = 0; i <= n; i++) {
+        let d = (i / n) * (2 * side + arc);
+        let x, y, rot;
+        if (d < side) { x = B; y = B + h - d; rot = -90; }
+        else if (d < side + arc) {
+          const th = Math.PI - ((d - side) / arc) * Math.PI;
+          x = cx + R * Math.cos(th); y = cy - R * Math.sin(th); rot = 90 - (th * 180) / Math.PI;
+        } else { x = B + w; y = cy + (d - side - arc); rot = 90; }
+        out += kalka(x, y, rot, s);
+      }
+      frame.setAttribute("viewBox", `0 0 ${w + 2 * B} ${h + B}`);
+      frame.innerHTML = out;
+    }
+
+    // Bottom-left props: shola topor, a painted mangal ghot and the bride's mukut
+    const topor = `
+      <g stroke="#a99f92" stroke-width="1">
+        <path d="M58 26C56 6 78 0 88 12C80 9 70 12 70 26Z" fill="url(#shola)"/>
+        <path d="M50 92L56 26H72L78 92Z" fill="url(#shola)"/>
+        <path d="M60 30V90M64 28V90M68 30V90" stroke="#cfc6b8"/>
+        <path d="M24 176L44 92H84L104 176Z" fill="url(#shola)"/>
+        <path d="M44 100L34 172M52 100L46 172M60 100L58 172M68 100L70 172M76 100L82 172M84 100L94 172" stroke="#cfc6b8"/>
+        <rect x="40" y="90" width="48" height="10" rx="3" fill="#fff"/>
+        <rect x="14" y="174" width="100" height="40" rx="8" fill="url(#shola)"/>
+        ${[30, 52, 76, 98].map((x) => `<circle cx="${x}" cy="194" r="10" fill="#fff"/><circle cx="${x}" cy="194" r="5.5" fill="none" stroke="#c9a96a"/><circle cx="${x}" cy="194" r="2" fill="#c9a96a" stroke="none"/>`).join("")}
+        <path d="M14 182H114M14 206H114" stroke="#cfc6b8"/>
+      </g>`;
+    const ghot = `
+      <g stroke="#5e1308" stroke-width="1">
+        <path d="M150 64L156 40L162 64Z" fill="#d0432b"/>
+        <circle cx="156" cy="38" r="3" fill="#f2c230"/>
+        <path d="M144 84C144 72 150 64 156 64C162 64 168 72 168 84Z" fill="#2f7d3a"/>
+        <path d="M138 104C138 90 146 84 156 84C166 84 174 90 174 104Z" fill="url(#potRed)"/>
+        <path d="M140 98H172" stroke="#f2c230" stroke-width="3"/>
+        <rect x="146" y="104" width="20" height="10" fill="#f2c230"/>
+        <path d="M126 160C118 132 136 114 156 114C176 114 194 132 186 160C182 176 170 186 156 186C142 186 130 176 126 160Z" fill="url(#potRed)"/>
+        <path d="M128 140H184" stroke="#f2c230" stroke-width="4"/>
+        <path d="M130 150H182" stroke="#2f7d3a" stroke-width="3"/>
+        ${[136, 146, 156, 166, 176].map((x) => `<path d="M${x} 158c4 6 4 10 0 14-4-4-4-8 0-14z" fill="#f2c230" stroke="none"/>`).join("")}
+        <path d="M140 186H172L168 200H144Z" fill="#2f7d3a"/>
+      </g>`;
+    const mukut = `
+      <g stroke="#7a4b00" stroke-width="1">
+        <path d="M184 206C186 176 206 156 226 156C246 156 258 176 258 206Z" fill="url(#crown)"/>
+        ${[0, 1, 2, 3, 4].map((i) => {
+          const a = (-150 + i * 30) * Math.PI / 180, x = 221 + Math.cos(a) * 30, y = 200 + Math.sin(a) * 30;
+          return `<path d="M${x.toFixed(1)} ${y.toFixed(1)}c-6-10 0-22 6-26 6 4 12 16 6 26z" fill="#d0432b" transform="rotate(${(-60 + i * 30)} ${x.toFixed(1)} ${y.toFixed(1)})"/>`;
+        }).join("")}
+        <path d="M206 186c4-14 26-14 30 0" fill="none" stroke="#d0432b" stroke-width="3"/>
+        <circle cx="221" cy="176" r="6" fill="#2f7d3a"/><circle cx="221" cy="176" r="2.5" fill="#fff" stroke="none"/>
+        <rect x="180" y="204" width="80" height="16" rx="4" fill="#fbf8f2" stroke="#a99f92"/>
+        ${[188, 200, 212, 224, 236, 248].map((x) => `<circle cx="${x}" cy="212" r="3" fill="#d0432b" stroke="none"/>`).join("")}
+      </g>`;
+    document.querySelector(".props").innerHTML = defs + ghot + mukut + topor;
+
+
+    // Faint alpana / mandala swirls in the beige background
+    const bg = document.querySelector(".bgart");
+    function drawBg() {
+      const W = window.innerWidth, H = Math.max(window.innerHeight, document.documentElement.scrollHeight);
+      bg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+      const m = (x, y, r) => `<g transform="translate(${x} ${y}) scale(${r / 100})">${mandala("currentColor")}</g>`;
+      const big = (x, y, rot, sc) => `<path d="${KALKA}" fill="none" stroke="currentColor" stroke-width="${1.2 / sc}" transform="translate(${x} ${y}) rotate(${rot}) scale(${sc})"/>`;
+      bg.innerHTML = m(W * 0.08, H * 0.1, 150) + m(W * 0.95, H * 0.55, 180) + m(W * 0.1, H * 0.92, 130) +
+        big(W * 0.9, H * 0.16, 30, 5) + big(W * 0.05, H * 0.5, -20, 6) + big(W * 0.75, H * 0.97, 160, 5);
+    }
+
+    drawFrame();
+    drawBg();
+    new ResizeObserver(() => { drawFrame(); drawBg(); }).observe(arch);
+
+  </script>
+  <script src="/music.js"></script>
+  <script>
+    // Music: on by default (from the first tap where the browser requires one), toggled by the button
+    const btn = document.querySelector(".music");
+    const showMusic = (on) => {
+      btn.setAttribute("aria-pressed", on);
+      btn.setAttribute("aria-label", on ? "Pause music" : "Play music");
+      btn.querySelector(".label").textContent = on ? "Music on" : "Play music";
+    };
+    btn.addEventListener("click", () => showMusic(WeddingMusic.toggle()));
+    WeddingMusic.autoplay(showMusic, btn);
   </script>
   <script src="/common.js"></script>
 </body>
